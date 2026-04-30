@@ -523,9 +523,7 @@ const soundStateText=document.getElementById('soundStateText');
 
 function applySoundState(){
     bgm.muted =
-    enemyDieSound.muted =
-    pickupSound.muted =
-    shootSound.muted = !soundEnabled;
+    enemyDieSound.muted = !soundEnabled;
 
     soundStateEmoji.textContent=soundEnabled?'🔊':'🔈';
     soundStateText.textContent=soundEnabled?'ON':'OFF';
@@ -539,18 +537,14 @@ soundToggle.addEventListener('change',()=>{
     applySoundState();   // ⭐ 이 줄 추가
 });
 
-const bgm = new Audio("background.mp3");
+const bgm = new Audio("back_snd1.mp3");
 bgm.loop = true;
 bgm.volume = 0.4;
 
-const enemyDieSound = new Audio("enemydie.mp3");
+const enemyDieSound = new Audio("deathsound.mp3");
 enemyDieSound.volume = 0.6;
 
-const pickupSound = new Audio("pickup.mp3");
-pickupSound.volume = 0.6;
 
-const shootSound = new Audio("shoot.mp3");
-shootSound.volume = 0.3;
 applySoundState();
 
 
@@ -652,7 +646,7 @@ saveBtn.addEventListener('click', async () => {
 
     alert(`저장되었습니다!\nID: ${val}\n기록: ${record}초`);
     msgBox.style.display='none';
-    location.href="canvas_js_exam_1_15_exam_rankpage.html";
+    location.href="rank.html";
 
     // alert("저장성공 : 다음 단원에서는 성공시 rankpage.html 페이지로 이동을 학습합니다.");
   }catch(err){
@@ -670,7 +664,7 @@ startBtn.addEventListener('click', async () => {
   userInteracted = true;
 
   // ✅ 오디오 unlock (모든 사운드)
-   const audios = [bgm, enemyDieSound, pickupSound, shootSound];
+   const audios = [bgm, enemyDieSound];
 
   for (const a of audios) {
     try {
@@ -1053,7 +1047,7 @@ function drawItems() {
       y + heroSize > it.y
     ) {
       playerLife = Math.min(maxLife, playerLife + 1);
-      safePlay(pickupSound);
+      
       items.splice(i, 1);
       continue;
     }
@@ -1107,7 +1101,7 @@ document.addEventListener('keydown', e => {
     y: y,
     speed: 7
   });
-  safePlay(shootSound);
+ 
   ammo--;
   if(gameStarted){
   playerLife -= 0.2;
@@ -1170,7 +1164,7 @@ function shootMobile() {
     speed: 7
   });
 
-  safePlay(shootSound);
+
   ammo--;
 
   if (gameStarted) {
@@ -1181,7 +1175,7 @@ function shootMobile() {
   lastShot = now;
 }
 document.getElementById('btnRank').addEventListener('click',function(){
-    location.replace("canvas_js_exam_1_15_exam_rankpage.html");
+    location.replace("rank.html");
 });
 function enableUserInteraction() {
   userInteracted = true;
