@@ -28,7 +28,7 @@
 
 ## 🚀 실행 방법
 
-1. https://lms01-hub.github.io/galaxy-survivor-webgame/ 접속
+1. [https://lms01-hub.github.io/galaxy-survivor-webgame/ 접속
 2. https://buly.kr/H6jnWZY 접속
 
 ---
