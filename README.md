@@ -1,3 +1,6 @@
+## 🎮 게임 스크린샷
+
+![게임 화면](start.png)
 # 👽 Galaxy Survivor 🤖
 
 ## 📌 프로젝트 소개
